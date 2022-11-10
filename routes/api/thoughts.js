@@ -17,6 +17,12 @@ const {} = require("../../controllers/videoController");
 
 // DELETE to remove a thought by its _id
 
+// TODO: /api/thoughts/:thoughtId/reactions
+
+// POST to create a reaction stored in a single thought's reactions array field
+
+// DELETE to pull and remove a reaction by the reaction's reactionId value
+
 // /api/routes2
 router.route("/").get({}).post({});
 

@@ -1,5 +1,29 @@
 // TODO: User
+const { Schema, model } = require("mongoose");
 
+const userSchema = new Schema(
+  {
+    thoughts: [],
+    friends: [],
+    _id: Number.AUTO_INCREMENT,
+    username: String,
+    email: String,
+    friendCount: Number,
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
+
+userSchema.get(function () {
+  return `${this.username} ${this.email}`;
+});
+
+const User = model("user", userSchema);
+
+module.exports = User;
 // username
 
 // String

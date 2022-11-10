@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const {} = require("../../controllers/userController");
+const User = require("../models/User");
+
+// const {} = require("../../controllers/userController");
 
 // TODO: /api/users
 
@@ -26,8 +28,12 @@ const {} = require("../../controllers/userController");
 
 // DELETE to remove a friend from a user's friend list
 
-// /api/routes1/
-router.route("/").get({}).post({});
+// /api/users/
+router.route("/").get(function (req, res) {
+  User.find({})
+    .then((users) => res.json(users))
+    .catch((err) => res.status(500).json(err));
+});
 
 // /api/routes1/:route
 router.route("/:route").get({});
